@@ -9,7 +9,8 @@ public class Electrodomestico {
     private String consumoEnergetico = "F";
     private float peso = 5;
 
-    private List<String> letras = new ArrayList<>();
+    final List<String> letras = new ArrayList<>();
+    final List<String> colores = new ArrayList<>();
 
 
     public Electrodomestico(float precioBse, float peso) {
@@ -17,7 +18,8 @@ public class Electrodomestico {
         this.peso = peso;
     }
 
-    public Electrodomestico(){}
+    public Electrodomestico() {
+    }
 
     public Electrodomestico(float precioBse, String color, String consumoEnergetico, float peso) {
         this.precioBse = precioBse;
@@ -26,7 +28,26 @@ public class Electrodomestico {
         this.peso = peso;
     }
 
-    public void comprobarConsumoEnergetico(char letra){
+    public void comprobarColor(String color) {
+
+        colores.add("blanco");
+        colores.add("negro");
+        colores.add("rojo");
+        colores.add("azul");
+        colores.add("gris");
+
+        for (String s : colores) {
+            if (s.equalsIgnoreCase(color)) {
+                System.out.println("Existe");
+                this.color = color;
+                return;
+            }
+        }
+        System.out.println("No existe");
+    }
+
+    public void comprobarConsumoEnergetico(String letra) {
+
         letras.add("A");
         letras.add("B");
         letras.add("C");
@@ -34,6 +55,14 @@ public class Electrodomestico {
         letras.add("E");
         letras.add("F");
 
+        for (String s : letras) {
+            if (letra.equalsIgnoreCase(s)) {
+                System.out.println("Existe");
+                this.consumoEnergetico = letra;
+                return;
+            }
+        }
+        System.out.println("No existe");
     }
 
     public float getPrecioBse() {
